@@ -32,7 +32,7 @@ body{
 .userflash{
     background-color:green;
 }
-/* Mobile Responsive Code */
+
 @media (max-width: 600px) {
     .btn {
         height: 120px;     
