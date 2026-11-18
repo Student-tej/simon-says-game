@@ -6,6 +6,7 @@ let level = 0;
 let highScore =0;
 let h2 = document.querySelector("h2");
 let highScoreDisplay = document.querySelector("#high-score");
+let h3 = document.querySelector("h3");
 
 function startGame(event) {
    
@@ -19,8 +20,7 @@ function startGame(event) {
     }
 }
 
-// Touchstart hata diya hai kyunki phone par 'click' by default kaam karta hai 
-// aur isse double-click (bubbling) ka bug nahi aayega.
+
 document.addEventListener("keypress", startGame);
 document.addEventListener("click", startGame);
    
@@ -40,6 +40,7 @@ function levelup(){
     userSeq = [];
     level++;
     h2.innerText = `Level ${level}`;
+   h3.innerText = "Note the sequence of flashing boxes and repeat it!";
     let ranIdx = Math.floor(Math.random()*4);
     let rancolor = btns[ranIdx];
     let ranBtn = document.querySelector(`.${rancolor}`);
@@ -58,7 +59,8 @@ function checkAns(idx){
             highScore = level;
             highScoreDisplay.innerText = `High Score: ${highScore}`;
         }
-        h2.innerHTML = `Game over! your score was <b>${level}</b> <br> Press any key to restart.`;
+        h2.innerHTML = `Game over! Your score was <b>${level}</b>`;
+       h3.innerText = "Tap the screen or press any key to restart.";
         document.querySelector("body").style.backgroundColor="red";
         setTimeout(function(){
             document.querySelector("body").style.backgroundColor="white";
