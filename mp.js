@@ -7,12 +7,17 @@ let highScore =0;
 let h2 = document.querySelector("h2");
 let highScoreDisplay = document.querySelector("#high-score");
 
-document.addEventListener("keypress",function(){
-    if(started == false){
+function startGame() {
+    if (started == false) {
         started = true;
         levelup();
     }
-});
+}
+
+document.addEventListener("keypress", startGame);
+document.addEventListener("touchstart", startGame);
+document.addEventListener("click", startGame);
+   
 function gameFlash(btn){
     btn.classList.add("flash");
     setTimeout(function(){
