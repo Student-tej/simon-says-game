@@ -7,15 +7,21 @@ let highScore =0;
 let h2 = document.querySelector("h2");
 let highScoreDisplay = document.querySelector("#high-score");
 
-function startGame() {
+function startGame(event) {
+   
+    if (event && event.target && event.target.classList.contains("btn")) {
+        return;
+    }
+
     if (started == false) {
         started = true;
         levelup();
     }
 }
 
+// Touchstart hata diya hai kyunki phone par 'click' by default kaam karta hai 
+// aur isse double-click (bubbling) ka bug nahi aayega.
 document.addEventListener("keypress", startGame);
-document.addEventListener("touchstart", startGame);
 document.addEventListener("click", startGame);
    
 function gameFlash(btn){
